@@ -1,0 +1,43 @@
+body {
+  background-image: url("/default_Img/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  font-family: "Pacifico", cursive;
+  font-size: 12px;
+  line-height: 1.8em;
+  text-transform: none;
+  letter-spacing: 0.075em;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  color: #000000;
+  display: block;
+}
+.title {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.form-control {
+  border: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: rgba(255, 255, 255);
+  font-weight: 100;
+  font-size: 3rem;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.hover{
+  cursor: pointer;
+}

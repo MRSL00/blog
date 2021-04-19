@@ -1,0 +1,171 @@
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="row">
+                    <div class="col text-center title <%= (()=> {
+                        if(page==="Login") {return "mb-0" } else
+                        {return "" } })() %>">
+                        <h1 class="text-dark">
+                            <%= (()=> {
+                                if(page==="Register") {return "Register" } else
+                                {return "Login" } })() %>
+                        </h1>
+                    </div>
+                </div>
+
+                <form class="needs-validation"  action="<%= (()=> {
+                    if(page==="Register") {return "/register" } else {return "/login" } })() %>" method="POST" novalidate>
+                    
+                    
+                    <div class="row align-items-center mt-4">
+                        <div id="hideTTP" class="col-12 col-sm-6<%= (()=> {
+            if(page==="Login" ) {return " d-none" } else {return " d-block" } })() %>">
+                            <input type="text" name="firstname" class="form-control" id="validationTooltip01"
+                                placeholder="First Name">
+                            <div class="invalid-tooltip <%= (()=> {
+                                if (err.length && err.filter((el) => el.includes("firstname")).length) {return " d-block"}
+                                else {return " d-none"}
+                                })() %>">
+                                <%= err.filter((el) => el.includes("firstname"))[0] %> 
+                            </div>
+                        </div>
+                        
+                        
+                        <div id="hideTTP" class="col-12 col-sm-6 mt-4 mt-sm-0<%= (()=> {
+            if(page==="Login" ) {return " d-none" } else {return " d-block" } })() %>">
+                            <input type="text" name="lastname" class="form-control" placeholder="Last Name"
+                                id="validationTooltip02">
+                            <div class="invalid-tooltip <%= (()=> {
+                                if (err.length && err.filter((el) => el.includes("lastname")).length) {return " d-block"}
+                                else {return " d-none"}
+                                })() %>">
+                                <%= err.filter((el) => el.includes("lastname"))[0] %>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row align-items-center">
+                        <div id="hideTTP" class="col mt-4">
+                            <input type="text" name="username" class="form-control" placeholder="Username"
+                                id="validationCustomUsername" aria-describedby="inputGroupPrepend">
+                            <div class="invalid-tooltip <%= (()=> {
+                                if (err.length && err.filter((el) => el.includes("User")).length) {return " d-block"}
+                                else {return " d-none"}
+                                })() %>">
+                                <%= err.filter((el) => el.includes("User"))[0] %>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="row align-items-center mt-4<%= (()=> {
+            if(page==="Login" ) {return " d-none" } else {return " d-block" } })() %>">
+                        <div id="hideTTP" class="col">
+                            <input type="text" name="email" class="form-control" placeholder="Email"
+                                id="validationTooltip03">
+                            <div class="invalid-tooltip <%= (()=> {
+                                if (err.length && err.filter((el) => el.includes("Email")).length) {return " d-block"}
+                                else {return " d-none"}
+                                })() %>">
+                                <%= err.filter((el) => el.includes("Email"))[0] %>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="row align-items-center mt-4">
+                        
+                        <div id="hideTTP" class="col-12 col-sm-6<%= (()=> {
+                            if(page==="Login" ) {return " d-none" } else {return " d-block" } })() %>">
+                            <input type="text" name="mobile" class="form-control" placeholder="Phone"
+                                id="validationTooltip04">
+                            <div class="invalid-tooltip<%= (()=> {
+                                if (err.length && err.filter((el) => el.includes("phone")).length) {return " d-block"}
+                                else {return " d-none"}
+                                })() %>">
+                                <%= err.filter((el) => el.includes("phone"))[0] %>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div id="hideTTP" class="col-12 col-sm-6 mt-4 mt-sm-0<%= (()=> {
+                            if(page==="Login" ) {return " d-none" } else {return " d-block" } })() %>">
+                            <select name="gender" class="custom-select mr-sm-2 form-control font-weight-bold"
+                                id="inlineFormCustomSelect validationTooltip05">
+                                <option selected value="" >Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <div class="invalid-tooltip <%= (()=> {
+                                if (err.length && err.filter((el) => el.includes("gender")).length) {return " d-block"}
+                                else {return " d-none"}
+                                })() %>">
+                                Please select your gender!!!
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                    
+                    <div class="row align-items-center  <%= (()=> {
+                        if(page==="Register") {return "mt-4" } else
+                        {return "mt-2" } })() %>">
+                        
+                        <div id="hideTTP" class="col-12 <%= (()=> {
+                            if(page==="Login" ) {return "col-sm-12" } else {return "col-sm-6" } })() %>">
+                            <input type="password" name="password" class="form-control" placeholder="Password"
+                                id="validationTooltip06">
+                            <div class="invalid-tooltip  <%= (()=> {
+                                if (err.length && err.filter((el) => el.includes("password")).length) {return " d-block"}
+                                else {return " d-none"}
+                                })() %>">
+                                <%= err.filter((el) => el.includes("password"))[0] %>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="col-12 col-sm-6 mt-4 mt-sm-0<%= (()=> {
+            if(page==="Login" ) {return " d-none" } else {return " d-block" } })() %>">
+                            <input type="password" name="confirm" class="form-control" placeholder="Confirm Password"
+                                id="validationTooltip07">
+                        </div>
+                    
+                    </div>
+                    
+                    
+                    <div class="row justify-content-start mt-1">
+                        
+                        <div class="col-12">
+                            <button class="btn btn-primary col-12 col-sm-2 mt-4"><%= (()=> {
+                                    if(page==="Register") {return "Register" } else {return "Login" } })() %></button>
+
+                                <% if (page==="Login") { %>
+                                    <span>
+                                    <a type="button" class="btn btn-danger text-white col-12 col-sm-5 hover mt-4 ml-0 ml-sm-2" data-toggle="modal" data-target="#exampleModal">Forgot your password?</a>
+                                    </span>
+                                <% } %>
+                            <span>
+                                <p> <%= (()=> {
+                                    if(page==="Register") {return "do you have an account?" } else
+                                    {return "New around here?" } })() %><a href="<%= (()=> {
+                                    if(page==="Register") {return "/login" } else {return "/register" } })() %>"
+                                        class="text-primary"> <%= (()=> {
+                                            if(page==="Register") {return "Login" } else
+                                            {return "Register" } })() %></a></p>
+                            </span>
+                           
+                        </div>
+                    
+                    </div>
+                
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</section>

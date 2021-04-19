@@ -1,0 +1,44 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">BestArticles</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item <%= (()=> {if (page === "allarticles") {return "active" }})() %>">
+                    <a class="nav-link" href="/allarticles/1/2">AllArticles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" id="drop">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src=<%= !data.avatar?"/default_Img/1.png":`/images/avatars/${data.avatar}`%> class="rounded-circle" width="30" height="30" alt="...">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/profile">Profile</a>
+                            <a class="dropdown-item" href="/myarticles/1/2">My Articles</a>
+                            <a class="dropdown-item" href="/createarticle">New Article</a>
+                            <a class="dropdown-item" href="/profile/edit">Edit Profile</a>
+                            <% if (data.role==="admin") { %>
+                                    <a class="dropdown-item" href="/allusers/1/2">All Users</a>
+                            <% } %>
+                            <hr>
+                            <a class="dropdown-item" href="/logout">Log out</a>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </nav>
+</header>
+
+

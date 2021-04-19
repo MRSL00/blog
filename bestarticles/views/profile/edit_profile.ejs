@@ -1,0 +1,119 @@
+<%- include("../partials/header.ejs",{page:"Edit profile"}); %>
+    <%- include("../partials/slide_bar.ejs",{page:"Edit profile"}); %>
+
+
+        <div id="navbar-wrapper">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <section id="content-wrapper">
+            <div class="alert alert-<%= (()=> {
+                if (err.length) {return "danger"} else if(succ.length) {return "success" } })() %> mt-3 <%= (()=>
+                    {
+                    if (err.length || succ.length) {return " d-block"} else {return " d-none" } })() %> mb-0"
+                    role="alert">
+                    <%= (()=> {
+                        if (err.length || succ.length) {return err[0] || succ}
+                        else {return ""}
+                        })() %>
+            </div>
+
+
+
+            <form id="form" enctype="multipart/form-data">
+                <div class="row ml-lg-5 ml-sm-4" id="photo">
+                    <div id="form_img" class="avatar-upload">
+                        <div class="avatar-edit">
+                            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" name="avatar" />
+                            <label for="imageUpload"></label>
+                        </div>
+                        <div class="avatar-preview container2">
+                            <img id="imagePreview" src=<%= !data.avatar?"/default_Img/1.png":`/images/avatars/${data.avatar}` %>>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center mt-4">
+                    <div class="col-12 col-sm-6">
+                        <input type="text" value="<%= data.firstname %>" name="firstname" class="form-control"
+                            placeholder="First Name">
+
+                    </div>
+                    <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                        <input type="text" value="<%= data.lastname %>" name="lastname" class="form-control"
+                            placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col mt-4">
+                        <input type="text" value="<%= data.username %>" name="username" class="form-control"
+                            placeholder="Username">
+
+                    </div>
+                </div>
+                <div class="row align-items-center mt-4">
+                    <div class="col">
+                        <input type="email" value="<%= data.email %>" name="email" class="form-control"
+                            placeholder="Email">
+
+                    </div>
+                </div>
+                <div class="row align-items-center mt-4">
+                    <div class="col-12 col-sm-6">
+                        <input type="text" value="<%= data.mobile %>" name="mobile" class="form-control"
+                            placeholder="Phone">
+                    </div>
+                    <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                        <select name="gender" value="<%= data.gender %>"
+                            class="custom-select mr-sm-2 font-weight-bold form-control" id="inlineFormCustomSelect">
+                            <option selected value="">Gender</option>
+                            <option value="male" <%=(()=> {
+                                if (data.gender==="male") {return " selected"}
+                                })() %> >Male</option>
+                            <option value="female" <%=(()=> {
+                                if (data.gender==="female") {return " selected"}
+                                })() %>>Female</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="row align-items-center mt-4">
+                    <div class="col-12 col-sm-6">
+                        <input type="password" name="password" class="form-control" placeholder="Password">
+
+                    </div>
+                    <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                        <input type="password" name="newpassword" class="form-control" placeholder="New Password">
+
+                    </div>
+                </div>
+
+                <div class="row justify-content-start">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary mt-4 sub">
+                            Update
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </section>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/javascripts/profile.js"></script>
+        </body>
+
+        </html>

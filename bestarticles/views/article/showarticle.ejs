@@ -1,0 +1,130 @@
+<%- include("../partials/header.ejs",{page:"showarticle"}); %>
+
+
+
+    <body>
+        <%- include("../partials/navbar.ejs",{page:"showarticle"}); %>
+            <div class="modal fade" id="exampleModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Comment</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="alert alert-danger d-none al_modal" role="alert"></div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">comment:</label>
+                                    <textarea class="form-control" id="edit_comment" id="message-text"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="editcommet" class="btn btn-primary">Share</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="cover">
+                <div class="jumbotron jumbotron-fluid" id="/images/covers/<%= article[0].cover %>">
+                    <div class="container">
+                        <h1 class="title display-3 text-center" style="font-weight:100;">
+                            <%= article[0].title %>
+                        </h1>
+                        <p class="lead string-1 text-center">by <%= article[0].author.username %>
+                        </p>
+                        <p class="lead string-1 text-center">Create In <%= article[0].createdAt.getFullYear() %>/<%=
+                                    article[0].createdAt.getMonth() %>/<%= article[0].createdAt.getDate() %> at
+                                        <%= article[0].createdAt.getHours() %>:<%= article[0].createdAt.getMinutes() %>:
+                                                <%= article[0].createdAt.getSeconds() %>
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="content">
+                <h1>
+                    <%= article[0].title %>
+                </h1>
+                <%- article[0].content %>
+            </div>
+            <div class="container d-flex justify-content-center mt-100 mb-100">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Recent Comments</h4>
+                                <h6 class="card-subtitle">Latest Comments section by users</h6>
+                            </div>
+                            <hr>
+                            <% if (!comments.length) { %>
+                                <h2 class="text-center mt-5">There is no Comment</h2>
+                            <% } else { %>
+                             
+                                <% for( let i=0; i < comments.length; i++ ) { %>
+
+                                    <div class="comment-widgets m-b-20">
+                                        <div class="d-flex flex-row comment-row">
+                                            <div class="p-2"><span class="round"><img
+                                                        src=<%= !comments[i].author.avatar?"/default_Img/1.png":`/images/avatars/${comments[i].author.avatar}` %>
+                                                    alt="user" width="50"></span></div>
+                                            <div class="comment-text w-100">
+                                                <h5>
+                                                    <%= comments[i].author.username %>
+                                                </h5>
+                                                <div class="comment-footer"> <span class="date">
+                                                        <%= comments[i].createdAt.getFullYear() %>/<%=
+                                                                comments[i].createdAt.getMonth() %>/<%=
+                                                                    comments[i].createdAt.getDate() %>
+                                                    </span> 
+                                                    <span class="action-icons"> 
+                                                        <% if (data.username===comments[i].author.username) { %>
+                                                            <a class="btn text-success ml-3"
+                                                                data-toggle="modal" data-target="#exampleModal"><i
+                                                                    class="fa fa-pencil" id="edit <%= i %>" commentId="<%= comments[i]._id %>"></i></a>
+                                                        <% } %>
+    
+                                                        <% if (data.role==="admin"|| data.username===comments[i].author.username) { %>
+                                                            <a id="delete" commentId="<%= comments[i]._id %>"
+                                                                class="text-danger"><i class="fa fa-trash"></i></a>
+                                                        <% } %>
+                                                    </span>
+                                                </div>
+                                                <p class="m-b-5 m-t-10" id="<%= i %>">
+                                                    <%= comments[i].comment %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <% } %>
+                             
+                            <% } %>
+                            
+
+                        </div>
+                    </div>
+                    <div class="col-md-11 mt-2">
+                        <div class="alert alert-danger ml-5 d-none" role="alert"></div>
+                        <form class="form-inline">
+                            <textarea id="comment" idArt="<%= article[0]._id %>" placeholder="Write your comment here!"
+                                class="col-md-12 pb-cmnt-textarea"></textarea>
+                            <button type="submit" id="share" class="btn btn-primary pull-right mt-2">Share</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script src="/javascripts/showarticle.js"></script>
+    </body>
+
+    </html>

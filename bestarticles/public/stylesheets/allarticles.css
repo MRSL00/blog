@@ -1,0 +1,55 @@
+body {
+  font-family: "Pacifico", cursive;
+  padding: 2rem 0rem;
+  background-image: url("/default_Img/bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  background-size: cover;
+}
+
+.card-img {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.card-title {
+  margin-bottom: 0.3rem;
+}
+
+.cat {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.fa-users {
+  margin-left: 1rem;
+}
+
+.card-footer {
+  font-size: 0.8rem;
+}
+.card img {
+  width: 100%;
+  filter: grayscale(100%);
+  transition: filter 0.5s;
+  height: 250;
+  object-fit: fill;
+  height: 316px;
+}
+.card {
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
+    0.3s box-shadow,
+    0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+.card:hover img {
+  filter: grayscale(0);
+}

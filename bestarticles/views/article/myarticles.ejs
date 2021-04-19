@@ -1,0 +1,91 @@
+<%- include("../partials/header.ejs",{page:"myarticles"}); %>
+    <%- include("../partials/slide_bar.ejs",{page:"myarticles"}); %>
+
+
+        <div id="navbar-wrapper">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="modal fade" id="basicModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="basicModal"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h4>Do you want to delete an this article?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="close" class="btn btn-default" data-dismiss="modal">NO</button>
+                        <button type="button" id="delete" class="btn btn-primary del">YES</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="content-wrapper">
+            <div class="container">
+                <% if (!articles.length) { %>
+
+                    <h2 class="text-center mt-5">There is no article</h2>
+                <% } else { %>
+                    <div class="row">
+                        <% for( let i=0; i < articles.length; i++ ) { %>
+                            <div class="col-12 col-sm-8  col-md-6 col-lg-4 mt-2">
+                                <div class="card">
+                                    <img class="card-img" src="/images/covers/<%= articles[i].cover %>" alt="">
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <%= articles[i].title %>
+                                        </h4>
+    
+                                        <i class="fa fa-user text-info"></i>
+                                        <%= articles[i].author.username %>
+    
+                                            <p class="card-text mt-2">
+                                                <%- articles[i].content.trim().substr(0,50) %>...
+                                            </p>
+                                            <span><a href="/article/<%= articles[i]._id %>"
+                                                    class="btn btn-info">Read</a></span><span><a
+                                                    href="/article/edit/<%= articles[i]._id %>"
+                                                    class="btn btn-secondary ml-1">Edit</a></span><span><a
+                                                    class="btn btn-danger ml-1 text-white delbtn" id="/article/<%= articles[i]._id %>" data-toggle="modal"
+                                                    data-target="#basicModal"><i class="fa fa-trash" 
+                                                        aria-hidden="true"></i></a></span>
+    
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-1">
+                                        <div class="views">
+                                            <%= articles[i].createdAt.getFullYear() %>/<%= articles[i].createdAt.getMonth()
+                                                    %>/<%= articles[i].createdAt.getDate() %> at
+                                                        <%= articles[i].createdAt.getHours() %>:<%=
+                                                                articles[i].createdAt.getMinutes() %>:<%=
+                                                                    articles[i].createdAt.getSeconds() %>
+                                        </div>
+                                        <div class="stats">
+                                            <i class="fa fa-eye"></i> <%= articles[i].viewer.length %>
+                                           
+                                        </div>
+    
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+    
+                    </div>
+                    <%- include("../partials/pagination.ejs",{pagename:"myarticles"}); %>
+                <% } %>
+            </div>
+        </section>
+
+        </div>
+
+        <script src="/javascripts/myarticles.js"></script>
+        </body>
+
+        </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= (()=> {
+            if (page === "profile") {return "Profile"}
+            else if(page === "Register") {return "Register"}
+            else if(page === "Edit profile") {return "Edit profile"}
+            else if(page === "allarticles") {return "All Articles"}
+            else if(page === "myarticles") {return "My Articles"}
+            else if(page === "createarticle") {return "Create Article"}
+            else if(page === "allusers") {return "All Users"}
+            else if(page === "showarticle") {return article[0].title}
+            else if(page === "editarticle") {return "Edit Article"}
+            else {return "Login"}
+            })() %>
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
+        
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+
+
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href=<%=(()=> {
+    if (page === "profile") {return "/stylesheets/profile.css"}
+    else if (page === "Edit profile") {return "/stylesheets/profile.css"}
+    else if(page === "Register") {return "/stylesheets/form.css"}
+    else if(page === "Login") {return "/stylesheets/form.css"}
+    else if(page === "allarticles") {return "/stylesheets/allarticles.css"}
+    else if(page === "myarticles") {return "/stylesheets/myarticles.css"}
+    else if(page === "showarticle") {return "/stylesheets/showarticle.css"}
+    else if(page === "allusers") {return "/stylesheets/allusers.css"}
+    else if(page === "createarticle") {return "/stylesheets/createarticle.css"}
+    else if(page === "editarticle") {return "/stylesheets/createarticle.css"}
+    })() %> />
+</head>

@@ -1,0 +1,80 @@
+<%- include("../partials/header.ejs",{page:"editarticle"}); %>
+
+    <%- include("../partials/slide_bar.ejs",{page:"editarticle"}); %>
+
+
+
+        <div id="navbar-wrapper">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        
+
+
+        <section id="content-wrapper  d-flex justify-content-center align-items-cente">
+
+            <div class="container">
+                <div class="alert alert-<%= (()=> {
+                    if (err.length) {return "danger"} })() %> mt-3 <%= (()=>
+                        {
+                        if (err.length) {return " d-block"} else {return " d-none" } })() %> mb-0"
+                        role="alert">
+                        <%= (()=> {
+                            if (err.length) {return err[0]}
+                            else {return ""}
+                            })() %>
+                </div>
+
+
+
+
+                <form id="form" enctype="multipart/form-data">
+                    <div class="form-group border-0">
+                        <img class="cover mt-3" src="/images/covers/<%= article[0].cover %> " alt="" width="200"
+                            height="200">
+                        <input type="file" accept=".png, .jpg, .jpeg" name="cover" id="cover"
+                            class="form-control border-0">
+                    </div>
+                    <div class="form-group position-relative">
+                        <input type="text" id="formtitle" name="title" class="form-control form-control-lg thick"
+                            placeholder="Title" value="<%= article[0].title %>">
+                    </div>
+
+
+                    <input name="content" type="hidden" value="<%= article[0].content %>">
+
+
+                    <div id="quillEditor">
+                    </div>
+
+
+                    <div class="text-center mt-4">
+                        <button type="submit" id="btn" artid="<%= article[0]._id %> " class="btn btn-primary"
+                            tabIndex="-1">Update Article</button>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+        </div>
+
+        <script src="https://cdn.quilljs.com/1.3.7/quill.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/javascripts/editarticle.js"></script>
+        </body>
+
+        </html>

@@ -1,0 +1,113 @@
+html {
+  height: 100%;
+}
+html,
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+}
+.pd-5vw {
+  padding: 5vw;
+}
+
+.dpd-20 {
+  padding-bottom: 20px;
+}
+.text-center {
+  text-align: center;
+}
+.text-red {
+  color: #ff3366;
+}
+
+.text-size-20-vh {
+  font-size: 20vh;
+  line-height: normal;
+}
+
+.text-size-10-vh {
+  font-size: 10vh;
+}
+
+.text-size-5-vh {
+  font-size: 5vh;
+}
+
+.bg-error-500 {
+  height: 100%;
+  position: relative;
+  background: #eee;
+  background: -moz-linear-gradient(
+    top,
+    rgb(0, 0, 0) 0%,
+    rgb(0, 0, 0) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    rgb(0, 0, 0) 0%,
+    rgb(0, 0, 0) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    rgb(0, 0, 0) 0%,
+    rgb(0, 0, 0) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbdb', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.error-img {
+  position: absolute;
+  text-align: right;
+  right: 10vw;
+  bottom: 10vh;
+  width: 40%;
+}
+.error-img img {
+  max-width: 100%;
+}
+
+.back-btn-500 {
+  text-decoration: none;
+  font-size: 21px;
+  padding: 10px 50px;
+  font-weight: lighter;
+  color: #fff;
+  display: inline-block;
+  border-radius: 500px;
+  background: #ff3366;
+  background: -moz-linear-gradient(
+    left,
+    rgb(0, 0, 0) 0%,
+    rgb(0, 0, 0) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    rgb(14, 13, 13) 0%,
+    rgb(0, 0, 0) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    rgb(0, 0, 0) 0%,
+    rgb(0, 0, 0) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5656', endColorstr='#f4b835',GradientType=1 ); /* IE6-9 */
+}
+
+.bottom-copy {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 140px;
+  text-align: center;
+}
+@media only screen and (max-width: 767px) {
+  .sm-hide {
+    display: none;
+  }
+  .text-size-10-vh {
+    font-size: 6vh;
+  }
+}
