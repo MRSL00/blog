@@ -20,6 +20,7 @@ const render_allarticlesPage = async (req, res) => {
       data: req.session.user,
       articles: articles,
       countpage: Math.ceil(countOfArticles / limit),
+      limit: limit,
       page: pageNumber,
     });
   } catch (err) {
@@ -98,6 +99,7 @@ const render_myarticlesPage = async (req, res) => {
       data: req.session.user,
       articles: articles,
       countpage: Math.ceil(countOfArticles / limit),
+      limit: limit,
       page: pageNumber,
     });
   } catch (err) {

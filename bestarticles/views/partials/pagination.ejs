@@ -2,17 +2,17 @@
     <ul class="pagination justify-content-center">
         <li class="page-item" id="pagenum" pagenum="<%= page %> "><a class="page-link"
                 href="/<%= (()=> {if (pagename === "myarticles") {return "myarticles" }else if(pagename ==="allusers"){return "allusers"}else{return "allarticles" }})()
-                %>/<%= page-1 %>/<%= countpage %>">Previous</a></li>
+                %>/<%= page-1 %>/<%= limit %>">Previous</a></li>
         <% for( let i=1; i <= countpage; i++ ) { %>
             <li class="page-item <%= (()=> {if (page === i) {return "active" }})() %>"><a class="page-link"
                     href="/<%= (()=> {if (pagename === "myarticles") {return "myarticles" }else if(pagename ==="allusers"){return "allusers"}else{return "allarticles"
-                    }})() %>/<%= i %>/<%= countpage %>"><%= i %></a></li>
+                    }})() %>/<%= i %>/<%= limit %>"><%= i %></a></li>
             <% } %>
 
 
 
                 <li class="page-item"><a class="page-link" href="/<%= (()=> {if (pagename === "myarticles")
-                        {return "myarticles" }else if(pagename ==="allusers"){return "allusers"}else{return "allarticles" }})() %>/<%= page+1 %>/<%= countpage %>
+                        {return "myarticles" }else if(pagename ==="allusers"){return "allusers"}else{return "allarticles" }})() %>/<%= page+1 %>/<%= limit %>
                                 ">Next</a></li>
     </ul>
 </nav>

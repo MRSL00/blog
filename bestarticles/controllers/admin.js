@@ -19,6 +19,7 @@ const render_allusersPage = async (req, res) => {
       data: req.session.user,
       users: users,
       countpage: Math.ceil(countOfBloggers / limit),
+      limit: limit,
       page: pageNumber,
     });
   } catch (err) {
